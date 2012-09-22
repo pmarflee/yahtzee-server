@@ -1,7 +1,31 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2012 for Web
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Yahtzee.Core", "Yahtzee.Core\Yahtzee.Core.fsproj", "{015EC3EA-D153-4725-84C7-E8EB7253CF8E}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Yahtzee.Server", "Yahtzee.Server\Yahtzee.Server.fsproj", "{E8AB0241-9FAC-4CA7-AEDA-863492A9C407}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Yahtzee.Tests", "Yahtzee.Tests\Yahtzee.Tests.fsproj", "{9573FE91-3CA2-47C6-A18E-7DC29ED31ABC}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{015EC3EA-D153-4725-84C7-E8EB7253CF8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{015EC3EA-D153-4725-84C7-E8EB7253CF8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{015EC3EA-D153-4725-84C7-E8EB7253CF8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{015EC3EA-D153-4725-84C7-E8EB7253CF8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8AB0241-9FAC-4CA7-AEDA-863492A9C407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AB0241-9FAC-4CA7-AEDA-863492A9C407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AB0241-9FAC-4CA7-AEDA-863492A9C407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AB0241-9FAC-4CA7-AEDA-863492A9C407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9573FE91-3CA2-47C6-A18E-7DC29ED31ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9573FE91-3CA2-47C6-A18E-7DC29ED31ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9573FE91-3CA2-47C6-A18E-7DC29ED31ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9573FE91-3CA2-47C6-A18E-7DC29ED31ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
