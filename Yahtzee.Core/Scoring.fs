@@ -42,7 +42,7 @@ module Scoring =
             if options |> List.exists (fun straight -> Set.isSubset straight set)
             then score else 0
 
-        let dieValues = System.Enum.GetValues(typeof<Die>) :?> Die[] |> Set.ofArray
+        let dieValues = System.Enum.GetValues(typeof<Die>) :?> Die[]
         let getStraightScorerOptions size = dieValues |> Seq.windowed size |> Seq.map Set.ofArray |> Seq.toList
         let smallStraightScorerOptions = getStraightScorerOptions 4
         let largeStraightScorerOptions = getStraightScorerOptions 5
