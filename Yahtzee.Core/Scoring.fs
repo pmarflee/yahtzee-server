@@ -12,32 +12,32 @@ module Scoring =
 
     module private ScoringUtils =
 
-        let nOfAKind (dice : Die list) n =
+        let nOfAKind dice n =
             dice 
-            |> Seq.groupBy (fun die -> die)
+            |> Seq.groupBy id
             |> Seq.filter (fun (_, dice) -> dice |> Seq.length >= n)
             |> Seq.tryPick (fun (value, dice) -> Some(value, Seq.length dice))
 
         let nOfAKindScorer dice n scorer =
             match nOfAKind dice n with
-            | Some((value, count)) -> scorer dice
+            | Some(_) -> scorer dice
             | None -> 0
 
-        let sumOfDice dice = List.sumBy (fun die -> int die) dice
+        let sumOfDice dice = List.sumBy int dice
         let threeOfAKindScorer dice = nOfAKindScorer dice 3 sumOfDice
         let fourOfAKindScorer dice = nOfAKindScorer dice 4 sumOfDice
         let yahtzeeScorer dice = nOfAKindScorer dice 5 (fun _ -> int LowerSectionScore.Yahtzee)
 
         let fullHouseScorer dice =
             match dice
-              |> Seq.groupBy (fun die -> die)
+              |> Seq.groupBy id
               |> Seq.map (fun (_, seq) -> Seq.length seq)
               |> Seq.sort
               |> Seq.toList with
             | [2; 3] -> int LowerSectionScore.FullHouse
             | _ -> 0
 
-        let straightScorer (dice : Die list) options score =
+        let straightScorer dice options score =
             let set = dice |> Set.ofList
             if options |> List.exists (fun straight -> Set.isSubset straight set)
             then score else 0
@@ -51,9 +51,9 @@ module Scoring =
 
         let largeStraightScorer dice = straightScorer dice largeStraightScorerOptions (int LowerSectionScore.LargeStraight)
 
-        let chanceScorer dice = List.sumBy (fun die -> int die) dice
+        let chanceScorer dice = List.sumBy int dice
 
-        let upperCategoryScorer value (dice : Die list) =
+        let upperCategoryScorer value dice =
             List.sumBy (fun die -> if int die = value then int die else 0) dice
 
         let scorers = 
